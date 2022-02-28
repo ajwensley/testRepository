@@ -1,0 +1,3 @@
+<aura:tokens>
+    <aura:token name="spaceSize" value="50px"></aura:token>
+</aura:tokens>

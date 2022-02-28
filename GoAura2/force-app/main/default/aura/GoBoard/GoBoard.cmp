@@ -1,0 +1,32 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="GoBoardController">
+    <aura:attribute name="size" type="Integer" default="9"></aura:attribute>
+    <aura:attribute name="spaces" type="Integer[]" default="[]"></aura:attribute>
+    <aura:attribute name="alternate" type="Boolean" default="true"></aura:attribute>
+    <aura:attribute name="currentPlayer" type="Integer" default="1"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.setup}" />
+
+    <aura:iteration items="{!v.spaces}" var = "temp" indexVar="yaxis">
+        <div style="width:100%; display:flex;">
+            <aura:iteration items="{!temp}" var = "space" indexVar="xaxis">
+                <div class="background" style="{!'order: ' + xaxis}" data-xaxis="{!xaxis}" data-yaxis="{!yaxis}" onclick="{!c.clickSpace}">
+                    <aura:if isTrue="{!(space != 0)}">
+                        <div class="{!(space == 1) ? 'black piece' : 'white piece'}" data-xaxis="{!xaxis}" data-yaxis="{!yaxis}"></div>
+                    </aura:if>
+                </div>
+            </aura:iteration>
+        </div>
+    </aura:iteration>
+    
+    <lightning:input aura:id="sizeInput" type="Integer" value="5"></lightning:input>
+    <lightning:button label="Resize" onclick="{!c.resize}"></lightning:button>
+    <lightning:select aura:id="turnType" label="Click Options" required="false" onchange="{!c.setTurnType}">
+        <option value="-1">Alternate</option>
+        <option value="1">Black</option>
+        <option value="2">White</option>
+        <option value="0">Remove</option>
+    </lightning:select>
+    <lightning:input aura:id="saveInput" type="String" value=""></lightning:input>
+    <lightning:button label="Save" onclick="{!c.saveJS}"></lightning:button>
+    <lightning:button label="Load" onclick="{!c.loadJS}"></lightning:button>
+    <lightning:outputField name="saved" value="Save Successful" visible="true"></lightning:outputField>
+</aura:component>

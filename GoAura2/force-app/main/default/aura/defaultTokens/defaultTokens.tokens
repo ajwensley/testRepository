@@ -1,0 +1,4 @@
+<aura:tokens>
+    <aura:token name="spaceSize" value="50px"></aura:token>
+    <aura:token name="pieceSize" value="{! spaceSize}"></aura:token>
+</aura:tokens>

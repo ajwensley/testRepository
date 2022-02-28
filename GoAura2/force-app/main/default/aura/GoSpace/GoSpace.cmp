@@ -1,0 +1,12 @@
+<aura:component >
+    <!--aura:attribute name="isBlack" type = "boolean" default = "false"></aura:attribute>
+    <aura:attribute name="taken" type = "boolean" default = "false"></aura:attribute-->
+    <aura:attribute name="state" type="Integer" default="0"></aura:attribute>
+    
+	<div class="background" onclick="{!c.toggleVisible}">
+        <aura:if isTrue="{!(v.state != 0)}">
+            <div class="{!(v.state == 1) ? 'black piece' : 'white piece'}" onclick="{!c.toggleColor}"></div>
+        </aura:if>
+    </div>
+
+</aura:component>

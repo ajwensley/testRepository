@@ -1,0 +1,24 @@
+.THIS .background {
+    height: token(spaceSize);
+    width: token(spaceSize);
+    background-color: tan;
+    float: left;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.THIS .piece {
+    margin: 5px;
+    border-radius: 50%;
+    height: calc(0.8 * 50px);
+    width: 40px;
+    float: left;
+}
+
+.THIS .black {
+    background-color: black;
+}
+
+.THIS .white {
+    background-color: white;
+}
